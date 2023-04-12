@@ -4,18 +4,13 @@ library(rvest)
 library(slackr)
 
 # setup
-my_channel <- "#test"
-my_token <- "xoxb-5095796214786-5081358760999-STeJdgKlAjw2n8JvbQxv4VYS"
-my_webhook_url <- paste0(
-  "https://hooks.slack.com/services/", 
-  "T052TPE6AP4/B052DS1DN5D/t1kzVe8bRYz0VEfraHBR6veK"
-)
+user_info <- read.csv("secret.csv")
 # bug: does webhook url expire? 
 
 slackr_setup(
-  channel = my_channel, 
-  token = my_token, 
-  incoming_webhook_url = my_webhook_url
+  channel = user_info[1, 2], 
+  token = user_info[2, 2], 
+  incoming_webhook_url = user_info[3, 2]
 )
 
 # setting 
