@@ -5,10 +5,10 @@ library(slackr)
 
 # setup
 my_channel <- "#test"
-my_token <- "xoxb-5095796214786-5081358760999-5hHG9xKO5BoJ0RFqsdJQuy8n"
+my_token <- "xoxb-5095796214786-5081358760999-STeJdgKlAjw2n8JvbQxv4VYS"
 my_webhook_url <- paste0(
   "https://hooks.slack.com/services/", 
-  "T052TPE6AP4/B052UBRSCF4/DJdr4cU3i1IpLr0yXteWqk2I"
+  "T052TPE6AP4/B052DS1DN5D/t1kzVe8bRYz0VEfraHBR6veK"
 )
 # bug: does webhook url expire? 
 
@@ -30,7 +30,7 @@ title <- read_html(paste0(
   html_elements(css = ".u-link-inherit") %>% 
   html_text(trim = TRUE)
 # send the titles to Slack
-slackr_msg(title)
+slackr_msg(head(title, 10))
 
 # future potential features: 
 # keep interested articles based on abstract text mining
